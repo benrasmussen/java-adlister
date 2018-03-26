@@ -4,14 +4,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
-@WebServlet(urlPatterns = "/hello/bonus")
 
-public class Bonus extends HttpServlet {
+@WebServlet(name = "CounterServlet", urlPatterns = "/counter")
+public class CounterServlet extends HttpServlet {
+//    http://localhost:8080/counter
+    private int count = 0;
+
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Ben Rasmussen!</h1>");
+        count += 1;
+        response.getWriter().println("The count is: " + count);
     }
 }
