@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-@WebServlet(urlPatterns = "/hello")
+@WebServlet(urlPatterns = "/hello/bonus")
 
-public class HelloWorldServlet extends HttpServlet {
+public class Bonus extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<h1>Hello, World!</h1>");
+        out.println("<h1>Ben Rasmussen!</h1>");
     }
 }
