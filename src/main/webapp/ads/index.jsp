@@ -30,12 +30,17 @@
 <body>
 
     <h1>Welcome to AdLister!</h1>
+    <hr>
 
         <c:forEach var="ad" items="${ads}">
-            <h1>${ad.title}</h1>
-            <hr>
-            <p>${ad.description}</p>
+            <div class="col-md-6">
+                <hr>
+                <h1>${ad.title}</h1>
+                <p>${ad.description}</p>
+                <hr>
+            </div>
         </c:forEach>
+
 
 </body>
 </html>
