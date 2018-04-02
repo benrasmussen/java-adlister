@@ -9,7 +9,7 @@
     <jsp:include page="../WEB-INF/partials/navbar.jsp" />
 
     <div class="container">
-        <h1>Viewing ${sessionScope.user} profile.</h1>
+        <h1>Viewing ${sessionScope.user}'s profile.</h1>
     </div>
 
 </body>
