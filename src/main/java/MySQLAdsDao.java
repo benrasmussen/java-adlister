@@ -45,7 +45,7 @@ public class MySQLAdsDao implements Ads {
             e.printStackTrace();
         }
         return ads;
-    };
+    }
 
     @Override
     public Long insert(Ad ad) {
