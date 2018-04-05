@@ -1,5 +1,6 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.User;
 
 import javax.servlet.ServletException;
@@ -11,33 +12,33 @@ import java.io.IOException;
 
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
-    // TODO: show the registration form
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user") != null) {
-            response.sendRedirect("/login");
-            return;
-        }
         request.getRequestDispatcher("/WEB-INF/users/register.jsp").forward(request, response);
-
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-            // TODO: ensure the submitted information is valid
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            String email = request.getParameter("email");
+        String username = request.getParameter("username");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String passwordConfirmation = request.getParameter("confirm_password");
 
-            boolean validAttempt = false;
+        // validate input
+        boolean inputHasErrors = username.isEmpty()
+                || email.isEmpty()
+                || password.isEmpty()
+                || (! password.equals(passwordConfirmation));
 
-            if (validAttempt) {
-                // TODO: store the logged in user object in the session, instead of just the username
-                // TODO: create a new user based off of the submitted information
-                User user = new User();
-                response.sendRedirect("/profile");
-            }
+        if (inputHasErrors) {
+            response.sendRedirect("/register");
+            return;
+        }
 
-        // TODO: if a user was successfully created, send them to their profile
+        // create and save a new user
+
+        // is the username, email, password actual values?
+        // how can I check if these variables have the values they should from the request from the register form?
+        User user = new User(username, email, password);
+        DaoFactory.getUsersDao().insert(user);
+        response.sendRedirect("/login");
     }
 }
-
-
