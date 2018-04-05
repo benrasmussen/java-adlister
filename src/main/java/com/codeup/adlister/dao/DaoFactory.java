@@ -1,9 +1,12 @@
 package com.codeup.adlister.dao;
 
+import com.codeup.adlister.models.Config;
+
 public class DaoFactory {
     private static Ads adsDao;
     private static Users usersDao;
     private static Config config = new Config();
+    public static int hashrounds = 7;
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
