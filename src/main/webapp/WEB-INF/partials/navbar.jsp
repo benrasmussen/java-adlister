@@ -12,6 +12,7 @@
         <ul class="nav navbar-nav navbar-right">
 
             <c:if test="${sessionScope.user != null}">
+                <li><a href="/profile">Profile</a></li>
                 <li><a href="/logout">Logout</a></li>
             </c:if>
 

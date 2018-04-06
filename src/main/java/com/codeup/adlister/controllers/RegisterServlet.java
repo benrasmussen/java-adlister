@@ -41,28 +41,28 @@ public class RegisterServlet extends HttpServlet {
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("password_error", "<p style=\"color:red\">Sorry \"password\" error!</p>");
+            session.setAttribute("password_error", "<h3 style=\"color:red\">Sorry \"password\" error!</h3>");
             response.sendRedirect("/register");
         } else if (!password.equals(passwordConfirmation)) {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("password_mismatch", "<p style=\"color:red\">Sorry \"passwords\" do not match!</p>");
+            session.setAttribute("password_mismatch", "<h3 style=\"color:red\">Sorry \"passwords\" do not match!</h3>");
             response.sendRedirect("/register");
         } else if (email == null || email.trim() == "") {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("email_error", "<p style=\"color:red\">Sorry \"email\" error!</p>");
+            session.setAttribute("email_error", "<h3 style=\"color:red\">Sorry \"email\" error!</h3>");
             response.sendRedirect("/register");
         } else if (username == null || username.trim() == "") {
             session.removeAttribute("password_error");
             session.removeAttribute("email_error");
             session.removeAttribute("username_error");
             session.removeAttribute("password_mismatch");
-            session.setAttribute("username_error", "<p style=\"color:red\">Sorry \"username\" error!</p>");
+            session.setAttribute("username_error", "<h3 style=\"color:red\">Sorry \"username\" error!</h3>");
             response.sendRedirect("/register");
         } else {
             session.removeAttribute("password_error");
